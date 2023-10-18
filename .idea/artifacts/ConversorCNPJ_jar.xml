@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="ConversorCNPJ:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ConversorCNPJ_jar</output-path>
+    <root id="archive" name="ConversorCNPJ.jar">
+      <element id="module-output" name="ConversorCNPJ" />
+    </root>
+  </artifact>
+</component>
