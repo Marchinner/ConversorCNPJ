@@ -4,12 +4,15 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Application extends JFrame {
     private JPanel ApplicationPanel;
     private JTextField textFieldCNPJOld;
     private JButton converterButton;
     private JTextField textFieldCNPJNew;
+    private JLabel JLabelDone;
 
     public Application() {
         ImageIcon img = null;
@@ -50,8 +53,19 @@ public class Application extends JFrame {
                     StringSelection stringSelection = new StringSelection(newCNPJ);
                     Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
                     clipboard.setContents(stringSelection, null);
-                    JOptionPane.showMessageDialog(ApplicationPanel, "CNPJ Convertido copiado!");
+
+                    textFieldCNPJOld.setText("");
+                    textFieldCNPJOld.requestFocus();
+                    JLabelDone.setText("CNPJ Convertido!");
+                    JLabelDone.setForeground(Color.RED);
                 }
+            }
+        });
+        textFieldCNPJOld.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                super.keyTyped(e);
+                JLabelDone.setText("");
             }
         });
     }
